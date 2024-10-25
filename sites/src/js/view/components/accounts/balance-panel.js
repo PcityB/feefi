@@ -1,5 +1,5 @@
 import React                            from "react"
-import { injectIntl, FormattedMessage } from 'react-intl';
+import { injectIntl, FormattedMessage, FormattedNumber } from 'react-intl';
 import TrendIcon                        from "../widgets/trend-icon"
 import AbstractComponent                from "../widgets/abstract-component"
 import LoadingImage                     from "../widgets/loading-image"
@@ -43,7 +43,13 @@ class BalancePanel extends AbstractComponent {
       </div>;
     }
     return [
-      <div key="balance" className="balance">¥{this.state.formattedBalance}</div>,
+      <div key="balance" className="balance">
+        <FormattedNumber
+          value={this.state.balance}
+          style="currency"
+          currency={this.props.intl.formatMessage({id: 'common.currency'})}
+        />
+      </div>,
       <div key="changes-from-previous-day" className="changes-from-previous-day">
         {this.createPriceAndRatio()}
         <TrendIcon value={this.state.changesFromPreviousDay} />
@@ -52,16 +58,15 @@ class BalancePanel extends AbstractComponent {
   }
 
   createPriceAndRatio() {
-    const { formatMessage } = this.props.intl;
-    let result = `${formatMessage({ id: 'accounts.BalancePanel.dayBeforeRatio' })}: ${formatMessage({ id: 'common.currencyUnit' })}`;
-    result += this.state.formattedChangesFromPreviousDay || " - ";
+    const { formatMessage, formatNumber } = this.props.intl;
+    let result = `${formatMessage({id: 'accounts.BalancePanel.dayBeforeRatio'})}: `;
+    result += formatNumber(this.state.changesFromPreviousDay, {
+      style: 'currency',
+      currency: formatMessage({id: 'common.currency'})
+    });
     result += " ( " + (this.state.formattedChangeRatioFromPreviousDay || "-%") + " )";
     return result;
   }
 }
-BalancePanel.propTypes = {
-  model: React.PropTypes.object.isRequired,
-  visibleTradingSummary: React.PropTypes.bool
-};
 
 export default injectIntl(BalancePanel);

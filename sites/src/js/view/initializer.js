@@ -5,6 +5,7 @@ import ReactDOM     from "react-dom"
 import { Router, hashHistory } from 'react-router'
 import ContainerJS  from "container-js"
 import { IntlProvider } from "react-intl";
+import { getIntlConfig } from "../i18n/i18n"
 
 import modules         from "../composing/modules"
 import routes          from "./routes"
@@ -35,7 +36,7 @@ export default class Initializer {
       const element = document.getElementById("main");
       const lang = this.lang();
       ReactDOM.render(
-        <IntlProvider locale={lang} messages={getMessages(lang)}>
+        <IntlProvider {...getIntlConfig(lang)}>
           <Router
             history={hashHistory}
             createElement={(component, props) => {

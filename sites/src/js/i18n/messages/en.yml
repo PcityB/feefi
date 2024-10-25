@@ -1,4 +1,5 @@
 common:
+  currency: USD
   currencyUnit: ¥
   error: Error
   button:
@@ -485,3 +486,4 @@ validation:
     range: {field} is out of range
     size: You can select up to {size} for {field}
     invalidValue: {field} is not entered correctly
+
