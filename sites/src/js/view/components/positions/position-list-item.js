@@ -1,4 +1,5 @@
-import React               from "react"
+import React                from "react"
+import { injectIntl, FormattedMessage } from 'react-intl';
 
 import AbstractComponent   from "../widgets/abstract-component"
 import PositionStatus      from "./position-status"
@@ -11,7 +12,7 @@ import Avatar from "material-ui/Avatar"
 
 const nullPosition = {};
 
-export default class PositionListItem extends React.Component {
+class PositionListItem extends React.Component {
 
   constructor(props) {
     super(props);
@@ -45,33 +46,34 @@ export default class PositionListItem extends React.Component {
   createProfitOrLossElement(position) {
     const type = PriceUtils.resolvePriceClass(position.profitOrLoss);
     return <span key="profitOrLoss" className={"profit-or-loss " + type}>
-      ¥{type == "up" ? "+" : ""}{position.formatedProfitOrLoss}
+      ¥{type == "up" ? "+" : ""}{position.formattedProfitOrLoss}
     </span>;
   }
   createSecondaryText(position) {
     let time = "";
-    if ( position.formatedEnteredAt != null ) {
-      time += position.formatedEnteredAt + " - ";
+    if ( position.formattedEnteredAt != null ) {
+      time += position.formattedEnteredAt + " - ";
     }
-    if ( position.formatedExitedAt != null ) {
-      time += position.formatedExitedAtShort;
+    if ( position.formattedExitedAt != null ) {
+      time += position.formattedExitedAtShort;
     }
     return [
       <span key="pair" className="pair">{position.pairName}</span>,
       <span key="separator" className="separator">/</span>,
-      <span key="sell-or-buy" className="sell-or-buy">{position.formatedSellOrBuy}</span>,
+      <span key="sell-or-buy" className="sell-or-buy"><FormattedMessage id={position.formattedSellOrBuy} /></span>,
       <span key="separator2" className="separator">/</span>,
       <span key="units" className="units">{position.units}</span>,
-      <span key="units-suffix" className="suffix">単位</span>,
+      <span key="units-suffix" className="suffix"><FormattedMessage id='positions.PositionListItem.unit'/></span>,
       <br key="br" />,
       <span key="time" className="time">{time}</span>
     ];
   }
   createRightIcon(position) {
-      if (position.status != "live") return null;
-      return <span className="right-icon" style={{width:"auto"}}>
-        <PositionStatus status={position.formatedStatus} />
-      </span>;
+    const { formatMessage } = this.props.intl;
+    if (position.status != "live") return null;
+    return <span className="right-icon" style={{width:"auto"}}>
+      <PositionStatus formattedStatus={formatMessage({id: position.formattedStatus })} status={position.status} />
+    </span>;
   }
   createAvatar(position) {
     return <Avatar className="left-icon" src={position.agentIconUrl} />
@@ -85,3 +87,4 @@ PositionListItem.defaultProps = {
   position: null,
   selected: false
 };
+export default injectIntl(PositionListItem);

@@ -1,4 +1,5 @@
 import React                  from "react"
+import { injectIntl, FormattedMessage, } from 'react-intl';
 
 import AbstractComponent      from "../widgets/abstract-component"
 
@@ -9,7 +10,7 @@ const keys = new Set([
   "acceptLicense", "acceptionError"
 ]);
 
-export default class WelcomeView extends AbstractComponent {
+export class WelcomeView extends AbstractComponent {
 
   constructor(props) {
     super(props);
@@ -23,15 +24,18 @@ export default class WelcomeView extends AbstractComponent {
   }
 
   render() {
+    const { formatMessage } = this.props.intl;
     return (
       <div className="welcome-view">
         <div className="description">
-          Jijiへようこそ。<br/>
-          利用規約をご確認のうえ、初期設定を開始してください。
+          <FormattedMessage id='initialSettings.WelcomeView.description.part1'/><br/>
+          <FormattedMessage id='initialSettings.WelcomeView.description.part2'/>
         </div>
         <div className="license inputs">
           <div className="license-link">
-            <a onClick={ () => window.open('http://jiji2.unageanu.net/terms/', '_blank') } >Jiji利用規約</a>
+            <a onClick={ () => window.open('http://jiji2.unageanu.net/terms/', '_blank') } >
+              <FormattedMessage id='initialSettings.WelcomeView.license'/>
+            </a>
           </div>
           <div className="accept-license">
             <Checkbox
@@ -39,7 +43,7 @@ export default class WelcomeView extends AbstractComponent {
               onCheck={(ev, checked) => this.props.model.acceptLicense = checked }
               name={"accept"}
               value={"accept"}
-              label={"利用規約に同意する"}
+              label={formatMessage({ id: 'initialSettings.WelcomeView.accept' })}
               />
           </div>
         </div>
@@ -47,11 +51,11 @@ export default class WelcomeView extends AbstractComponent {
         <div className="buttons">
           <span className="button">
             <RaisedButton
-              label="初期設定を開始"
+              label={formatMessage({ id: 'initialSettings.WelcomeView.start' })}
               primary={true}
               style={{width:"100%", height: "50px"}}
               labelStyle={{lineHeight: "50px"}}
-              onClick={() => this.props.model.startSetting()}
+              onClick={() => this.props.model.startSetting(formatMessage)}
             />
           </span>
         </div>
@@ -65,3 +69,4 @@ WelcomeView.propTypes = {
 WelcomeView.defaultProps = {
   model: null
 };
+export default injectIntl(WelcomeView);

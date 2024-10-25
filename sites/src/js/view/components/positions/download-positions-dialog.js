@@ -1,4 +1,5 @@
-import React              from "react"
+import React                    from "react"
+import { injectIntl, FormattedHTMLMessage, FormattedMessage } from 'react-intl';
 
 import Theme              from "../../theme"
 import RangeSelector      from "../widgets/range-selector"
@@ -12,7 +13,7 @@ const keys = new Set([
   "downloadType"
 ]);
 
-export default class DownloadPositionsDialog extends AbstractComponent {
+class DownloadPositionsDialog extends AbstractComponent {
 
   constructor(props) {
     super(props);
@@ -27,10 +28,7 @@ export default class DownloadPositionsDialog extends AbstractComponent {
 
   render() {
     const labelForAll = <span>
-      すべての建玉をダウンロードする<br/>
-      <span className="info">
-        ※建玉が多いと時間がかかる場合があります。ご注意ください。
-      </span>
+      <FormattedHTMLMessage id='positions.DownloadPositionsDialog.label' />
     </span>;
 
     return (
@@ -43,8 +41,7 @@ export default class DownloadPositionsDialog extends AbstractComponent {
         onRequestClose={this.dismiss.bind(this)}>
         <div className="dialog-content">
           <div className="dialog-description">
-            建玉データをCSV形式でダウンロードします。<br/>
-            ダウンロードする範囲を選択して、[ダウンロード]をクリックしてください。
+            <FormattedHTMLMessage id='positions.DownloadPositionsDialog.description' />
           </div>
           <div className="body">
             <RadioButtonGroup
@@ -57,7 +54,7 @@ export default class DownloadPositionsDialog extends AbstractComponent {
               </RadioButton>
               <RadioButton
                 value="filterd"
-                label="エントリー日時で絞り込む">
+                label={<FormattedMessage id='positions.DownloadPositionsDialog.filter' />}>
               </RadioButton>
             </RadioButtonGroup>
             <RangeSelector
@@ -72,11 +69,11 @@ export default class DownloadPositionsDialog extends AbstractComponent {
   createActionButtons() {
     return [
       <FlatButton
-        label="ダウンロード"
+        label={<FormattedMessage id='positions.DownloadPositionsDialog.download' />}
         primary={false}
         onTouchTap={this.downloadCSV.bind(this)}
       />, <FlatButton
-        label="キャンセル"
+        label={<FormattedMessage id='common.button.cancel' />}
         primary={false}
         onTouchTap={this.dismiss.bind(this)}
       />
@@ -88,8 +85,8 @@ export default class DownloadPositionsDialog extends AbstractComponent {
   }
 
   downloadCSV() {
-    this.rangeSelector.applySetting();
-    this.props.model.createCSVDownloadUrl().then((url)=> {
+    this.rangeSelector.getWrappedInstance().applySetting();
+    this.props.model.createCSVDownloadUrl(this.props.intl.formatMessage).then((url)=> {
       if (!url) return;
       this.dismiss();
       setTimeout( () => { window.location.href = url }, 500 );
@@ -109,3 +106,4 @@ DownloadPositionsDialog.propTypes = {
 };
 DownloadPositionsDialog.defaultProps = {
 };
+export default injectIntl(DownloadPositionsDialog, {withRef: true})
