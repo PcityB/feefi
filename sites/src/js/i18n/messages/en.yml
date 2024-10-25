@@ -1,0 +1,487 @@
+common:
+  currencyUnit: ¥
+  error: Error
+  button:
+    cancel: Cancel
+    next: Next
+    close: Close
+    yes: Yes
+    no: No
+  action:
+    reload: Reload
+    prev: Previous {size}
+    next: Next {size}
+  newPassword: New Password
+  newPasswordConfirm: Confirm New Password
+  newPasswordDescription: Please re-enter the new password for confirmation.
+  tickInterval:
+    fifteenSeconds: 15 seconds
+    oneMinute: 1 minute
+    fifteenMinutes: 15 minutes
+    thirtyMinutes: 30 minutes
+    oneHour: 1 hour
+    sixHours: 6 hours
+    oneDay: 1 day
+  realTrade: Real Trade
+  all: All
+  sell: Sell
+  buy: Buy
+  win: Win
+  lose: Lose
+  draw: Draw
+  unknown: Unknown
+  period:
+    day: Day
+    hour: Hour
+    minute: Minute
+    second: Second
+  chartIntervals:
+    oneMinute: 1-minute chart
+    fifteenMinutes: 15-minute chart
+    thirtyMinutes: 30-minute chart
+    oneHour: 1-hour chart
+    sixHours: 6-hour chart
+    oneDay: Daily chart
+
+Frame:
+  support: Support Forum
+  usage: Usage
+
+accounts:
+  BalancePanel:
+    title: Account Balance
+    dayBeforeRatio: Day Before Ratio
+  PerformancePanel:
+    title: Performance of the Last Week
+    winningPercentage: Winning Percentage
+    profitOrLoss: Profit or Loss
+
+agents:
+  AgentFileNameField:
+    label: File Name
+  AgentPropertyEditor:
+    classLabel: Class
+    description: Description
+    nameLabel: Agent Name
+  AgentSelectorDialog:
+    description: Please select an agent to add.
+  AgentSettingEditorMenu:
+    add: Add Agent
+    remove: Remove Selected Agent
+    confirmRemove: Are you sure you want to remove the selected agent?
+  AgentSourceEditorMenu:
+    save: Save
+    remove: Remove...
+    confirmRemove: Are you sure you want to delete the file?
+  AgentSourceEditor:
+    description:
+      part1: For detailed instructions on creating an agent, please refer to
+      part2: this guide
+      part3: .
+  AgentSourceListMenu:
+    newFile: New File
+  AgentSourceList:
+    noFile: No files available
+
+backtests:
+  BacktestBuilder:
+    button: Start Backtest with the Following Settings
+    name: Backtest Name
+    nameHint: Name of the backtest
+    range: Test Period
+    balance: Initial Balance
+    tickInterval: Rate Interval
+    tickIntervalDescription:
+      part1: Specify the interval at which the agent
+      part2: is called.
+      part3: Setting it to 1 hour or 1 day can significantly reduce test time, but accuracy will decrease.
+    memo: Memo
+    pairs: Currency Pairs
+    pairsDescription:
+      part1: Select the currency pairs to use in the backtest.
+      part2: You can select up to 5 currency pairs.
+      part3: Note that more currency pairs will increase the backtest duration.
+    agent: Agent
+    agentDescription: Set the agent to operate in the backtest.
+  BacktestDetailsTab:
+    info: Test Information
+    report: Report
+    chart: Chart
+    trades: Trade List
+    logs: Logs
+  BacktestList:
+    noBacktests: No backtests available
+  BacktestPropertiesView:
+    confirmRemove: Are you sure you want to delete the backtest?
+    confirmCancel: Are you sure you want to cancel the backtest execution?
+    confirmRestart: Are you sure you want to restart the backtest with the same settings?
+    agent: Agent
+    button:
+      restart: Restart...
+      cancel: Cancel...
+      remove: Remove...
+    columns:
+      name: Name
+      createdAt: Created At
+      status: Status
+      range: Period
+      balance: Initial Balance
+      pairs: Currency Pairs
+      tickInterval: Rate Interval
+      memo: Memo
+    error: Error (Please check the logs for details)
+
+chart:
+  RangeView:
+    label: Display Period
+  RateView:
+    open: Open Price
+    close: Close Price
+    high: High Price
+    low: Low Price
+
+icons:
+  IconSelector:
+    description: Please select an icon to use.
+    change: Change...
+    addDescription:
+      part1: To add an icon, drop the image here.
+      part2: Supports png/jpg/gif formats.
+      part3: Maximum image size is 100KB.
+    error: Upload failed. Please check the image format/size.
+
+initialSettings:
+  MailaddressAndPasswordSettingView:
+    title: Email and Password Settings
+    description:
+      part1: Set your email address and system login password.
+      part2: The password is required to use the system.
+      part3: The email address is used for password reset. Ensure it is a receivable address.
+    mailAddress: Email Address
+    password: Password
+    passwordConfirm: Confirm Password
+    passwordConfirmDescription: Please re-enter the password for confirmation.
+  SecuritiesSettingView:
+    title: Securities Company Settings
+    description:
+      part1: Select the securities company and set the access token.
+      part2: OANDA Japan
+      part3: offers both trading and demo accounts.
+      part4: A "Personal Access Token" is required. For issuance instructions, see
+      part5: here
+      part6: .
+  SettingFinishedView:
+    title: Completed
+    description:
+      part1: All settings are complete.
+      part2: For detailed system usage, see
+      part3: here
+      part4: .
+      part5: Also available on the mobile app!
+    app:
+      title: Mobile App Features
+      p:
+        catch: Don't miss trading opportunities with push notifications!
+        detail: Receive push notifications from trading algorithms using the mobile app. Get real-time notifications for trading points.
+      p2:
+        catch: Check trading status and manage the system anytime, anywhere.
+        detail: Simple UI for quick status overview. Manage the system on the go.
+      description: The mobile app is a paid software at ¥450/month (excluding tax). Try it free for 30 days after purchase.
+      iOS: iOS version coming soon.
+    start: Start Using
+  SMTPServerSettingView:
+    title: SMTP Server Settings
+    description: Set the SMTP server for sending emails. You can set this later.
+    composeTestMail: Send Test Email
+    next: Save and Next
+    skip: Skip Settings
+  WelcomeView:
+    description:
+      part1: Welcome to Jiji.
+      part2: Please review the terms of use and start the initial setup.
+    license: Jiji Terms of Use
+    accept: Agree to Terms
+    start: Start Initial Setup
+  ServerUrlSettingView:
+    title: Server Connection Settings
+    description: Set the URL of the server to use.
+    server: Server URL
+
+logs:
+  LogViewer:
+    noLogs: No logs available
+    scrollToTop: Scroll to Top
+    scrollToBottom: Scroll to Bottom
+
+notifications:
+  NotificationListItem:
+    unread: Unread
+  NotificationListMenuBar:
+    prev: Previous {size}
+    next: Next {size}
+  NotificationList:
+    noUnread: No unread notifications
+  NotificationsCard:
+    title: Unread Notifications
+    unread: Unread
+
+pages:
+  LoginPage:
+    title: Login
+    password: Password
+    button: Login
+    resetPassword: Forgot Password...
+    backToLogin: Back to Login
+    resetPasswordFlow:
+      part1: If you forgot your password, follow these steps to reset it.
+      part2: Enter the registered email address and click [Send Password Reset Email].
+      part3: A password reset email will be sent to the registered email. Open the email, enter the [Token] and new password to reset.
+    registeredEmail: Registered Email Address
+    sendPasswordResetMail: Send Password Reset Email
+    token: Token
+    setNewPassword: Set New Password
+    autoLogin: Auto Login
+  NotificationsPage:
+    noItems: No notifications
+  RMTAgentSettingPage:
+    description: Set the agent for real trading.
+    apply: Apply Settings
+    remove: Remove Agent
+    confirmRemove: Are you sure you want to remove the selected agent?
+  BillingPage:
+    checking: Checking License
+    failedToConnectServer: Could not connect to the license server. Please check your network connection and try again.
+    recheckLicense: Recheck License
+    description:
+      part1: Thank you for installing the Jiji app!
+      part2: The Jiji app is a paid software at ¥450/month (excluding tax).
+      part3: Try it free for 30 days after purchase.
+      part4: After the free trial, you will be automatically billed monthly. To cancel, follow
+      part5: these steps
+      part6: to terminate the subscription.
+      part7: Please review the terms of use and proceed with the license purchase.
+    accept: Agree to Terms
+    start: Proceed to License Purchase
+    processing: Processing. Please wait.
+
+positions:
+  DownloadPositionsDialog:
+    label: Download All Positions
+    description: Download position data in CSV format. Select the range and click [Download].
+    filter: Filter by Entry Date
+    download: Download
+  PositionDetailsView:
+    status: Status
+    type: Type
+    volume: Volume
+    pair: Currency Pair
+    price: Purchase Price
+    closePrice: Close Price
+    enteredAt: Entry Date
+    exitedAt: Exit Date
+    agent: Agent
+    trailStop: Trailing Stop
+    takeProfit: Take Profit
+    lossCut: Stop Loss
+  PositionListItem:
+    unit: Unit
+  PositionList:
+    noItems: No positions available
+  PositionsCard:
+    title: Positions
+    notClosed: Not Closed
+  PositionsTable:
+    downloadCsv: Download as CSV...
+    noItems: No positions available
+
+settings:
+  MailAddressSettingView:
+    title: Email Address Settings
+    description:
+      part1: Set the email address used by the system.
+      part2: The email address is used for password reset. Ensure it is a receivable address.
+    mailAddress: Email Address
+    save: Save
+  PairSettingView:
+    title: Currency Pair Settings
+    description:
+      part1: Set the currency pairs used by the system.
+      part2: You can select up to 20 currency pairs.
+    save: Save
+  PasswordSettingView:
+    title: Change Password
+    description: Change the system access password.
+    changePassword: Change Password
+    oldPassword: Current Password
+    change: Change
+  SecuritiesSettingView:
+    title: Securities Company Settings
+    description:
+      part1: Set the securities company information.
+      part2: For access token acquisition, see
+      part3: here
+      part4: .
+    save: Save
+  SMTPServerSettingView:
+    title: SMTP Server Settings
+    description: Set the SMTP server for sending emails.
+    composeTestMail: Send Test Email
+    save: Save
+    smtpServer: SMTP Server
+    port: SMTP Port
+    user: Username
+    password: Password
+
+tradingSummary:
+  TradingSummaryView:
+    totalProfitOrLoss: Total Profit or Loss
+    totalProfit: Total Profit
+    totalLoss: Total Loss
+    winPercentage: Win Percentage
+    positionCount: Number of Trades
+    closedPositionCount: Closed
+    profitFactor: Profit Factor
+    maxLoss: Maximum Loss
+    avgLoss: Average Loss
+    pair: Currency Pair
+    sellOrBuy: Sell/Buy
+    agent: Agent
+    holdTime: Holding Period
+    longest: Longest
+    shortest: Shortest
+    avg: Average
+    volume: Trade Volume
+    max: Maximum
+    min: Minimum
+    term: Aggregation Period
+
+widgets:
+  RangeSelector:
+    start: Start
+    end: End
+  UIEventHandler:
+    close: Close
+    open: Open
+
+viewmodel:
+  AgentSourceEditor:
+    saved: Saved.
+  BacktestModel:
+    running: Running
+    waitForStart: Waiting
+    cancelled: Cancelled
+    error: Error
+    finished: Finished
+  NotificationSelectionModel:
+    doAction: Executed action {action}
+    error: An error occurred during action execution. Please check the logs.
+  NotificationTableModel:
+    rmt: Real Trade
+    all: All
+  BacktestsPageModel:
+    failedToRestart: Failed to restart. Please check the backtest status.
+    failedToCancel: Failed to cancel. Please check the backtest status.
+  PositionModel:
+    status:
+      live: Live
+      closed: Closed
+      lost: Lost
+  SecuritiesSettingModel:
+    finishToChangeSetting: Securities company settings have been updated.
+    failedToChangeSetting: Could not connect to the securities company. Please check the access token.
+  TradingSummaryViewModel:
+    week: Last Week
+    oneMonth: Last 30 Days
+    threeMonths: Last 90 Days
+    oneYear: Last Year
+  Navigation:
+    home: Home
+    realtrade: Real Trade
+    tradingSummary: Trading Summary
+    chart: Chart
+    positions: Positions
+    agentSetting: Agent Settings
+    logs: Logs
+    backtest: Backtest
+    newBackTest: Create Test
+    backtestList: Test List
+    notifications: Notifications
+    agents: Agents
+    settings: Settings
+    login: Login
+    initialSettings: Initial Settings
+    welcome: Welcome
+    support: Support Forum
+    usage: Usage
+  AgentsPageModel:
+    edit: Edit Agent
+  RmtAgentSettingPageModel:
+    detail: Agent Details
+  RmtPositionDetailPageModel:
+    detail: Position Details
+  RmtTradingSummaryPageModel:
+    summary: Summary of {item}
+
+validation:
+  fields:
+    startTime: Start Time
+    endTime: End Time
+    testName: Test Name
+    memo: Memo
+    balance: Initial Balance
+    agent: Agent
+    fileName: File Name
+    password: Password
+    mailAddress: Email Address
+    token: Token
+    smtpServer: SMTP Server
+    smtpPort: SMTP Port
+    userName: Username
+    pair: Currency Pair
+    value: Value
+    data: Data
+    serverURL: Server URL
+
+  messages:
+    illegalStartTime: Invalid start time
+    acceptLicense: Please accept the terms of use
+    mismatchPassword: Passwords do not match
+    failedToResetPassword: Failed to reset password. Please check the token.
+    finishToResetPassword: Password has been reset. Please log in with the new password.
+    sentResetMail: A token has been sent to the registered email address.
+    mismatchMailAddress: The entered email address does not match the registered one. Please check.
+    failedToSendEmail: Failed to send email
+    finishToChangeMailAddress: Email address has been changed.
+    finishToChangeSetting: Settings have been changed.
+    mismatch: Does not match
+    mismatchCurrentPassword: Current password does not match. Please check.
+    finishToChangePassword: Password has been changed.
+    sentTestMail: A test email has been sent to the registered email address. Please check.
+    failedToSentMail: Error occurred while sending email. Please check the SMTP server settings.
+    failedToConnectServer: Could not connect to the server. Please check the URL.
+    networkErrorAndretry: A network error occurred. Please check your connection and try again.
+    networkError: Could not connect to the server. Please check your network connection.
+    serverError: Server error occurred
+    operationNotAllowed: Operation not allowed
+    serverBusy: Server is busy. Please try again later.
+    notFound: {entity} not found. Please reload the page for the latest information.
+    isEmpty: Please enter {field}
+    loginFailed: Email and password do not match
+    expired: The entered {field} has expired and cannot be used.
+    notNull: Please enter {field}
+    notEmpty: {field} is not set
+    maxLength: {field} is too long
+    minLength: {field} is too short
+    pattern: Invalid format for {field}
+    prohibitedCharacter: {field} contains prohibited character "{character}"
+    controlCode: {field} contains invalid characters
+    notNumber: Please enter a number for {field}
+    notNumberOrHyphen: Please enter a number or hyphen for {field}
+    notAlphabet: Please enter alphanumeric or symbols for {field}
+    notKatakana: {field} contains invalid characters
+    notHiragana: {field} contains invalid characters
+    max: {field} exceeds the maximum value
+    min: {field} is below the minimum value
+    range: {field} is out of range
+    size: You can select up to {size} for {field}
+    invalidValue: {field} is not entered correctly
